@@ -2,34 +2,37 @@
 TIC=function()
   --{
   cls(-1)
-  for k=110,0,-1 do
-    poke(k%48+16320,240/(1+2^(5-k%48/5-k%48*2%3)))
-    t=k-m%2/2
-    for o=10,-10,-1 do
+  for z=110,0,-1 do
+    poke(z%48+16320,240/(1+2^(5-z%48/5-z%48*2%3)))
+    Z=z-t%2/2
+    for x=10,-10,-1 do
       tri(
-        (o+math.sin(o+m/20)/2+math.sin(o+m//2+k))*1000/t+120,
-        (5-t/20-math.sin(o/20+m/100))*1000/t+70,
-        (o+.3+math.sin(o+m//2+k))*1000/t+120,
-        (8-t/20-math.sin(o/20+m/100))*1000/t+70,
-        (o-.3+math.sin(o+m//2+k))*1000/t+120,
-        (8-t/20-math.sin(o/20+m/100))*1000/t+70,
-        k/5-7)
+      		-- top
+        (x+math.sin(x+t/20)/2+math.sin(x+t//2+z))*1000/Z+120,
+        (5-Z/20-math.sin((z+t//2)/20)-math.sin((t/2)/20))*1000/Z+70,
+        -- bottom-right
+        (x+.3+math.sin(x+t//2+z))*1000/Z+120,
+        (8-Z/20-math.sin((z+t//2)/20)-math.sin((t/2)/20))*1000/Z+70,
+        -- bottom-left
+        (x-.3+math.sin(x+t//2+z))*1000/Z+120,
+        (8-Z/20-math.sin((z+t//2)/20)-math.sin((t/2)/20))*1000/Z+70,
+        z/5-7)
     end
   end
-  m=1+m
+  t=1+t
   --}
 end
-m=0
+t=0
 OVR=function()
   cls()
   circ(120,10,30,12)
-  circ(120+math.sin(m/100)*20,math.sin(m/70)*10+80,3,15)
-  circ(120+math.sin(m/100)*20,math.sin(m/70)*10+84,5,4)
-  circ(120+math.sin(m/100)*20,math.sin(m/70)*10+84,4,15)
-  circ(120+math.sin(m/100)*20,math.sin(m/70)*10+85,3,4)
-  circ(120+math.sin(m/100)*20,math.sin(m/70)*10+86,2,15)
-  elli(113+math.sin(m/100)*20,math.sin(m/70)*10+m%3*80,6,4,12)
-  elli(127+math.sin(m/100)*20,math.sin(m/70)*10+m%3*80,6,4,12)
+  circ(120+math.sin(t/100)*20,math.sin(t/70)*10+80,3,15)
+  circ(120+math.sin(t/100)*20,math.sin(t/70)*10+84,5,4)
+  circ(120+math.sin(t/100)*20,math.sin(t/70)*10+84,4,15)
+  circ(120+math.sin(t/100)*20,math.sin(t/70)*10+85,3,4)
+  circ(120+math.sin(t/100)*20,math.sin(t/70)*10+86,2,15)
+  elli(113+math.sin(t/100)*20,math.sin(t/70)*10+t%3*80,6,4,12)
+  elli(127+math.sin(t/100)*20,math.sin(t/70)*10+t%3*80,6,4,12)
 end
 --}
 -- <PALETTE>
