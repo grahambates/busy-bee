@@ -2,10 +2,10 @@
 TIC=function()
   --{
   cls(-1)
-  for z=110,0,-1 do
+  for z=140,0,-1 do
     poke(z%48+16320,240/(1+2^(5-z%48/5-z%48*2%3)))
     Z=z-t%2/2
-    for x=10,-10,-1 do
+    for x=15,-15,-1 do
       tri(
       		-- top
         (x+math.sin(x+t/20)/2+math.sin(x+t//2+z))*1000/Z+120,
@@ -16,7 +16,7 @@ TIC=function()
         -- bottom-left
         (x-.3+math.sin(x+t//2+z))*1000/Z+120,
         (8-Z/20-math.sin((z+t//2)/20)-math.sin((t/2)/20))*1000/Z+70,
-        z/5-7)
+        z/7-5)
     end
   end
   t=1+t
