@@ -4,18 +4,18 @@ TIC=function()
   cls(-1)
   for z=120,0,-1 do
     poke(z%48+16320,240/(1+2^(5-z%48/5-z%48*2%3)))
-    Z=(z+20)/1000
+    Z=1000/(z+20)
     for x=20,-20,-1 do
       tri(
       		-- top
-        120+(x+math.sin(t/20+x)/2+math.sin(t+x+z))/Z,
-        20+(7+math.sin((t+x+z)/40)+math.sin(t/40))/Z,
+        120+Z*(x+math.sin(t/20+x)/2+math.sin(t+x+z)),
+        20+Z*(math.sin((t+x+z)/40)+math.sin(t/40)+7),
         -- bottom-right
-        120+(x+.3+math.sin(t+x+z))/Z,
-        20+(10+math.sin((t+x+z)/40)+math.sin(t/40))/Z,
+        120+Z*(x+.3+math.sin(t+x+z)),
+        20+Z*(math.sin((t+x+z)/40)+math.sin(t/40)+10),
         -- bottom-left
-        120+(x-.3+math.sin(t+x+z))/Z,
-        20+(10+math.sin((t+x+z)/40)+math.sin(t/40))/Z,
+        120+Z*(x-.3+math.sin(t+x+z)),
+        20+Z*(math.sin((t+x+z)/40)+math.sin(t/40)+10),
         z/6-5)
     end
   end
